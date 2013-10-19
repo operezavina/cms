@@ -1,5 +1,8 @@
+require_relative 'auth_helper'
+require_relative 'auth_request_helper'
 require 'rubygems'
 require 'spork'
+
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
 
@@ -90,4 +93,6 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
   config.include Capybara::DSL
+  config.include AuthRequestHelper, :type => :request
+  config.include AuthHelper, :type => :controller
 end
