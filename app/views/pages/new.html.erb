@@ -1,0 +1,19 @@
+<h1>Create new page</h1>
+
+<%= form_for @page do |form| %>
+    <p>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </p>
+
+    <p>
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </p>
+
+    <p>
+      <%= form.label :content %>
+      <%= form.text_field :content %>
+    </p>
+    <%= form.submit "Save" %>
+<% end %>
