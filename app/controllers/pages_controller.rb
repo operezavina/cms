@@ -16,7 +16,9 @@ class PagesController < ApplicationController
       render 'new'
     end
   end
+  def show
 
+  end
   private
 
   def page_params
