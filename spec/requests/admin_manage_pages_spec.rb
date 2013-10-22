@@ -11,7 +11,6 @@ describe "Manage Pages", :type => :feature do
       visit_admin_path
       Page.create(name: "home")
       Page.create(name: "about")
-
       find_link('Manage Pages').click
       expect(page).to have_content("home")
       expect(page).to have_content("about")
@@ -26,6 +25,7 @@ describe "Manage Pages", :type => :feature do
       expect(page).to have_content("Create new page")
       fill_in 'Name', with: "A test page"
       fill_in 'Title', with: "A test page"
+      fill_in 'Content', with: "A test page"
       click_on('Save')
       expect(page).to have_content("A test page")
     end
@@ -33,17 +33,33 @@ describe "Manage Pages", :type => :feature do
 
   describe "delete page" do
     it "should delete page" do
-      visit pages_path
-      click_link('Destroy', match: :first)
-      expect(page).to have_css 'confirm', text: 'Are you sure?'
+      visit_admin_path
+      find_link('Manage Pages').click
+      page.first(:link, 'Destroy')
+      expect(page).to have_content 'Content'
     end
   end
 
+
   describe "edit page" do
     it "should edit page" do
-      visit pages_path
-      click_link('Edit', match: :first)
+      visit_admin_path
+      find_link('Manage Pages').click
+      page.first(:link, 'Edit')
+      expect(page).to have_content 'Content'
     end
   end
+
+ describe "new page" do
+   it "should have page" do
+     visit_admin_path
+     find_link('Manage Pages').click
+     find_link('New Page').click
+     Page.create(name: "home")
+     Page.create(title: "my home")
+     Page.create(content: "content")
+   end
+ end
+
 
 end
