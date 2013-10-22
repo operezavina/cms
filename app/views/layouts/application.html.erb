@@ -18,12 +18,12 @@
     <!-- end #header -->
     <div id="menu">
       <ul>
-        <li class="current_page_item"><a href="#">Homepage</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Photos</a></li>
+        <li class="current_page_item"><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Blog", welcome_blog_path %></li>
+        <li><%= link_to "Photos", welcome_photos_path %></li>
         <li><%= link_to "About", welcome_about_path %></li>
-        <li><a href="#">Links</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><%= link_to "Links", welcome_links_path %></li>
+        <li><%= link_to "Contact", welcome_contact_path %></li>
       </ul>
     </div>
   </div>
