@@ -7,5 +7,10 @@ describe "HomePage", :type => :feature do
       expect(page).to have_content("Welcome to my website")
     end
   end
+
+
+
+
+
 end
 

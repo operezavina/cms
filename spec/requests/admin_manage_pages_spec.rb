@@ -31,5 +31,19 @@ describe "Manage Pages", :type => :feature do
     end
   end
 
+  describe "delete page" do
+    it "should delete page" do
+      visit pages_path
+      click_link('Destroy', match: :first)
+      expect(page).to have_css 'confirm', text: 'Are you sure?'
+    end
+  end
+
+  describe "edit page" do
+    it "should edit page" do
+      visit pages_path
+      click_link('Edit', match: :first)
+    end
+  end
 
 end
