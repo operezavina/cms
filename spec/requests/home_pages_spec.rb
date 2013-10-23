@@ -13,7 +13,7 @@ describe "HomePage", :type => :feature do
   describe "When I visit menu on homepage" do
     it "should have a the next items" do
       visit root_path
-      find_link("Homepage")
+      find_link("Home")
       find_link('Blog')
       find_link('Photos')
       find_link('About')
